@@ -1,0 +1,51 @@
+version: "3.1"
+services:
+  laravel:
+    build: ./docker/laravel/
+    tty: true
+    stdin_open: true
+    network_mode: host
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - 80:80
+  mariadb:
+    image: mariadb
+    ports:
+      - 3306:3306
+    network_mode: host
+    volumes:
+      - ./docker/mariadb/tmp:/var/lib/mysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+  phpmyadmin:
+    build: ./docker/phpmyadmin/
+    ports:
+      - 8080:8080
+    network_mode: host
+    environment:
+      - PMA_PORT=3306
+      - PMA_HOST=127.0.0.1
+      - MYSQL_ROOT_PASSWORD=
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    network_mode: host
+    ports:
+      - 27017:27017
+    volumes:
+      - ./docker/mongodb/tmp:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+  mongo-express:
+    image: mongo-express
+    restart: always
+    network_mode: host
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: 127.0.0.1
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: root
