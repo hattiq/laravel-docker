@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM php
 # LABEL Author="Attiq ur Rehman h.attiqurrehman2@gmail.com"
 
 RUN apt-get update
