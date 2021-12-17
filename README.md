@@ -1,3 +1,10 @@
 # laravel-docker
 Status: Not Maintained
-Dockerizing Laravel Application with MariaDB, phpMyAdmin, MongoDB, Mongo-express
+Dockerizing Laravel Application
+
+# Services
+ - Laravel
+ - MariaDB
+ - phpMyAdmin
+ - MongoDB
+ - Mongo-express
