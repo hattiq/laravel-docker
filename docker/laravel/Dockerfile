@@ -1,5 +1,5 @@
 FROM php
-# LABEL Author="Attiq ur Rehman h.attiqurrehman2@gmail.com"
+LABEL Author="Attiq ur Rehman h.attiqurrehman2@gmail.com"
 
 RUN apt-get update
 
@@ -35,4 +35,3 @@ WORKDIR /var/www/html
 EXPOSE 80
 
 CMD bash -c "source /etc/apache2/envvars && apache2 -DFOREGROUND"
-#CMD ["service", "apache2", "start"]
