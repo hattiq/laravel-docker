@@ -7,4 +7,4 @@ windows-deploy:
     - windows-runner
   script:
     - echo "Hello World!!!"
-    - gitlab-cicd-deploy.bat
+    - .\gitlab-cicd-deploy.bat
