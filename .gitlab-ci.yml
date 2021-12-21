@@ -1,0 +1,10 @@
+stages:
+  - deploy
+
+windows-deploy:
+  stage: deploy
+  tags: 
+    - windows-runner
+  script:
+    - echo "Hello World!!!"
+    - gitlab-cicd-deploy.bat
